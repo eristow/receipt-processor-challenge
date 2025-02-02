@@ -1,3 +1,4 @@
+name: receipt-processor-challenge-dev
 services:
   api-dev:
     build:
