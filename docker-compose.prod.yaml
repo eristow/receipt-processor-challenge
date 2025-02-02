@@ -4,5 +4,12 @@ services:
       context: .
       target: final
 
+    healthcheck:
+      test: ['CMD-SHELL', 'curl -f http://localhost:3000/ || exit 1']
+      interval: 30s
+      timeout: 30s
+      retries: 5
+      start_period: 3s
+
     ports:
       - 3000:3000
