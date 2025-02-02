@@ -15,7 +15,15 @@ export default class ReceiptDatabase {
     return this._instance;
   }
 
-  getReceiptById(id: string): ReceiptDBEntry {
+  getAllReceipts(): ReceiptDBEntry[] {
+    return Object.values(this.database);
+  }
+
+  getReceiptById(id: string): ReceiptDBEntry | null {
+    if (!(id in this.database)) {
+      return null;
+    }
+
     return this.database[id];
   }
 

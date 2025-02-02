@@ -13,7 +13,6 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
-// TODO: Figure out how to have controllers access DB without passing it around everywhere.
 ReceiptDatabase.getInstance();
 
 app.use(logRequest);

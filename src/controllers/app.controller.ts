@@ -1,9 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
 
-const appController = {
-  appGet,
-};
-
 export async function appGet(req: Request, res: Response, next: NextFunction) {
   try {
     res.send('Root endpoint');
@@ -13,4 +9,6 @@ export async function appGet(req: Request, res: Response, next: NextFunction) {
   }
 }
 
-export default appController;
+export default {
+  appGet,
+};
