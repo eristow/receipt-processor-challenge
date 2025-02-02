@@ -1,6 +1,15 @@
 import { NextFunction, Request, Response } from 'express';
 
-export function logRequest(req: Request, res: Response, next: NextFunction) {
+export default function logRequest(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
+  if (req.path == '/health') {
+    next();
+    return;
+  }
+
   const reqTime = new Date(Date.now()).toString();
 
   console.log(

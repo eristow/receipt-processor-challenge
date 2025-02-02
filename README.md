@@ -53,10 +53,8 @@ $ pnpm dev
 ### Design Decisions:
 TODO: add stuff here
 * Why TypeScript and Express
-* Why Docker Compose
+* Why MVC
 * In-memory DB vs actual DB
 * In-memory DB singleton pattern
 * Folder structure of routes, controllers, services, models
-* Why exporting a single object for services, controllers
-  * To control access to internal methods
-	TODO: make them into classes instead? Might make more sense...
+* Why Docker Compose

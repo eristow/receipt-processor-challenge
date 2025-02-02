@@ -1,27 +1,13 @@
-import express, { Express, Request, Response } from 'express';
 import dotenv from 'dotenv';
-import appRouter from '@routes/app.route';
-import receiptsRouter from '@routes/receipts.route';
-import errorMiddleware from './middlewares/error.middleware';
-import { logRequest } from './middlewares/logger.middleware';
-import ReceiptDatabase from '@models/receipts.model';
+import App from './app';
+import AppController from '@controllers/app.controller';
+import ReceiptsController from '@controllers/receipts.controller';
 
 dotenv.config();
 
-const app: Express = express();
-const port = process.env.PORT || 3000;
+const app = new App(
+  [new AppController(), new ReceiptsController()],
+  Number(process.env.PORT) || 3000
+);
 
-app.use(express.json());
-
-ReceiptDatabase.getInstance();
-
-app.use(logRequest);
-
-app.use('/', appRouter);
-app.use('/receipts', receiptsRouter);
-
-app.use(errorMiddleware);
-
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
+app.listen();
